@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
 import MoviesPage from '../movies/moviesPage';
+import MovieDetailPage from '../movie/movieDetailPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -33,9 +34,9 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/resources/:id"
+              <Route path="/movies/:id"
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <MovieDetailPage {...routerProps} />
                 )}
               />
 

@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './movieItem.css';
 
 export default class MovieItem extends Component {
@@ -8,9 +9,11 @@ export default class MovieItem extends Component {
 
     return (
       <li className="movieItem">
-        <h2>{movie.name}</h2>
-        <img src={movie.url} alt={movie.name} />
-        <p>{movie.year}</p>
+        <Link to={`/movies/${movie.id}`}>
+          <h2>{movie.name}</h2>
+          <img src={movie.url} alt={movie.name} />
+          <p>{movie.year}</p>
+        </Link>
       </li>
     );
   }

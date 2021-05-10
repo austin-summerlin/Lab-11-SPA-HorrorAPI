@@ -1,4 +1,4 @@
-.movieItem {
+.movieItem a {
   list-style: none;
   background: white;
   border: 1px solid darkgray;
@@ -12,6 +12,10 @@
 
   justify-items: center;
   align-items: center;
+
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .movieItem h2 {
