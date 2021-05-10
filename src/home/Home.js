@@ -11,7 +11,7 @@ export default class Home extends Component {
           <h2>Home Page</h2>
         </header>
         <p>
-          <Link to='/resources'>See the List</Link>
+          <Link to='/movies'>See the List</Link>
         </p>
       </div>
     );

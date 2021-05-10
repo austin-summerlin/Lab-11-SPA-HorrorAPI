@@ -2,6 +2,8 @@ import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
+import MoviesPage from '../movies/moviesPage';
+import MovieDetailPage from '../movie/movieDetailPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,25 +18,25 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header/>
+          <Header />
           <main>
 
             <Switch>
               <Route path="/" exact={true}
                 render={routerProps => (
-                  <Home {...routerProps}/>
+                  <Home {...routerProps} />
                 )}
               />
 
-              <Route path="/resources" exact={true}
+              <Route path="/movies" exact={true}
                 render={routerProps => (
-                  <div>Implement a page of resources</div>
+                  <MoviesPage {...routerProps} />
                 )}
               />
 
-              <Route path="/resources/:id"
+              <Route path="/movies/:id"
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <MovieDetailPage {...routerProps} />
                 )}
               />
 
@@ -42,7 +44,7 @@ class App extends Component {
 
             </Switch>
           </main>
-          <Footer/>
+          <Footer />
         </Router>
       </div>
     );

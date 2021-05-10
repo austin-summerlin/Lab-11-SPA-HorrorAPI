@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import movieItem from './movieItem';
+import MovieItem from './movieItem';
 import './movieList.css';
 
-export default class movieList extends Component {
+export default class MovieList extends Component {
 
   render() {
     const { movies } = this.props;
@@ -10,7 +10,7 @@ export default class movieList extends Component {
     return (
       <ul className="movieList">
         {movies.map(movie => (
-          <movieItem key={movie.id} movie={movie} />
+          <MovieItem key={movie.id} movie={movie} />
         ))}
       </ul>
     );
