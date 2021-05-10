@@ -2,6 +2,7 @@ import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
+import MoviesPage from '../movies/moviesPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,19 +17,19 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <Header/>
+          <Header />
           <main>
 
             <Switch>
               <Route path="/" exact={true}
                 render={routerProps => (
-                  <Home {...routerProps}/>
+                  <Home {...routerProps} />
                 )}
               />
 
-              <Route path="/resources" exact={true}
+              <Route path="/movies" exact={true}
                 render={routerProps => (
-                  <div>Implement a page of resources</div>
+                  <MoviesPage {...routerProps} />
                 )}
               />
 
@@ -42,7 +43,7 @@ class App extends Component {
 
             </Switch>
           </main>
-          <Footer/>
+          <Footer />
         </Router>
       </div>
     );

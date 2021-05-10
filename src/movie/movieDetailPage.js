@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import movieList from './movieList';
+import MovieList from './movieList';
 import './movieDetailPage.css';
 
-export default class movieDetailPage extends Component {
+export default class MovieDetailPage extends Component {
 
   render() {
 

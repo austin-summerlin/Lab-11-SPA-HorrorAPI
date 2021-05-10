@@ -1,10 +1,16 @@
 import { Component } from 'react';
-import movieList from './movieList';
+import MovieList from './movieList';
+import { getMovies } from '../utils/movies-api';
 import './moviesPage.css';
 
-export default class moviesPage extends Component {
+export default class MoviesPage extends Component {
   state = {
     movies: []
+  }
+
+  async componentDidMount() {
+    const movies = await getMovies();
+    this.setState({ movies: movies });
   }
 
   render() {
@@ -12,7 +18,7 @@ export default class moviesPage extends Component {
     return (
       <div className="moviesPage">
         <h2>List of Movies</h2>
-        <movieList movies={movies} />
+        <MovieList movies={movies} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './movieItem.css';
 
-export default class movieItem extends Component {
+export default class MovieItem extends Component {
 
   render() {
     const movie = this.props.movie;
