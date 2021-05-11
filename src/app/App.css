@@ -4,7 +4,11 @@
   grid-template-rows: auto 1fr auto;
 }
 
+.App main {
+  overflow: auto;
+}
+
 main {
-  background: #3f4f6dc7;
+  background: rgb(56, 56, 56);
 }
 

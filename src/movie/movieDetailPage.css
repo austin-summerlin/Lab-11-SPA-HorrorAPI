@@ -1,0 +1,21 @@
+.movieDetailPage {
+  display: grid;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  color: red;
+  text-shadow: 2px 2px black;
+}
+
+.movieDetailPage h2 {
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+}
+.movieDetailPage p {
+  text-align: center;
+  margin: 5px;
+  color: red; 
+}
