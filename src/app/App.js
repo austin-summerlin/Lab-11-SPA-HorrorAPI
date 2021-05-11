@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Home from '../home/Home';
 import MoviesPage from '../movies/moviesPage';
 import MovieDetailPage from '../movie/movieDetailPage';
+import MovieEditPage from '../movie-edit/MovieEditPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -31,6 +32,12 @@ class App extends Component {
               <Route path="/movies" exact={true}
                 render={routerProps => (
                   <MoviesPage {...routerProps} />
+                )}
+              />
+
+              <Route path="/movies/add"
+                render={routerProps => (
+                  <MovieEditPage {...routerProps} />
                 )}
               />
 
