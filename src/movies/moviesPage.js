@@ -17,7 +17,7 @@ export default class MoviesPage extends Component {
     const { movies } = this.state;
     return (
       <div className="moviesPage">
-        <h2>List of Movies</h2>
+        <h2>Movies</h2>
         <MovieList movies={movies} />
       </div>
     );
