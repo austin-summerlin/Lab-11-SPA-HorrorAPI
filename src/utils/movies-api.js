@@ -23,6 +23,6 @@ export async function deleteMovie(id) {
 }
 
 export async function updateMovie(movie) {
-  const response = await (await request.put(`${URL}/${movie.id}`)).statusType('json').send(movie);
+  const response = await await request.put(`${URL}/${movie.id}`).statusType('json').send(movie);
   return response.body;
 }

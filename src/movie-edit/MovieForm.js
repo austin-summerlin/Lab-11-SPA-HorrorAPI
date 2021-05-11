@@ -3,18 +3,25 @@ import './MovieForm.css';
 
 export default class MovieForm extends Component {
   state = {
-    name: 'Shawn of The Dead',
-    genre: 'Zombie',
-    year: 2004,
-    director: 'Edgar Wright',
-    country: 'United Kingdom',
-    length: '1 Hour 46 Minutes',
-    url: '/movies/shawn.png'
+    name: '',
+    genre: '',
+    year: '',
+    director: '',
+    country: '',
+    length: '',
+    url: ''
+  }
+
+  componentDidMount() {
+    const { movie } = this.props;
+    if (!movie) { return; }
+
+    this.setState(movie);
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onEdit(this.state);
+    this.props.onSubmit(this.state);
   }
 
   handleChangeName = ({ target }) => {
@@ -48,6 +55,7 @@ export default class MovieForm extends Component {
 
   render() {
     const { name, genre, year, director, country, length, url } = this.state;
+    const { movie } = this.props;
 
     return (
       <form className="MovieForm" onSubmit={this.handleSubmit}>
@@ -119,7 +127,7 @@ l      l</p>
         </p>
 
         <p>
-          <button>Add Movie</button>
+          <button>{movie ? 'Edit' : 'Add'}Movie</button>
         </p>
 
       </form>

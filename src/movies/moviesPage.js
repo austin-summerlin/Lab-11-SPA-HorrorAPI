@@ -9,8 +9,16 @@ export default class MoviesPage extends Component {
   }
 
   async componentDidMount() {
-    const movies = await getMovies();
-    this.setState({ movies: movies });
+    try {
+      const movies = await getMovies();
+      this.setState({ movies: movies });
+    }
+    catch (err) {
+      console.log(err.message);
+    }
+    finally {
+      this.setState({ loading: false });
+    }
   }
 
   render() {
@@ -22,5 +30,4 @@ export default class MoviesPage extends Component {
       </div>
     );
   }
-
 }

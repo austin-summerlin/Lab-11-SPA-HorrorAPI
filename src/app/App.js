@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Home from '../home/Home';
 import MoviesPage from '../movies/moviesPage';
 import MovieDetailPage from '../movie/movieDetailPage';
+import MovieAddPage from '../movie-add/MovieAddPage';
 import MovieEditPage from '../movie-edit/MovieEditPage';
 import {
   BrowserRouter as Router,
@@ -37,13 +38,19 @@ class App extends Component {
 
               <Route path="/movies/add"
                 render={routerProps => (
-                  <MovieEditPage {...routerProps} />
+                  <MovieAddPage {...routerProps} />
                 )}
               />
 
-              <Route path="/movies/:id"
+              <Route path="/movies/:id" exact={true}
                 render={routerProps => (
                   <MovieDetailPage {...routerProps} />
+                )}
+              />
+
+              <Route path="/movies/:id/edit" exact={true}
+                render={routerProps => (
+                  <MovieEditPage {...routerProps} />
                 )}
               />
 
