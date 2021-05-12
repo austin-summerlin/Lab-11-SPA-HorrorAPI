@@ -6,34 +6,33 @@ import './MovieEditPage.css';
 export default class MovieEditPage extends Component {
   state = {
     movie: null,
-    loading: false
+    loading: true
   }
 
   async componentDidMount() {
     const { match } = this.props;
-
-    const movie = await getMovie(match.params.id);
-    if (movie) {
+    try {
+      const movie = await getMovie(match.params.id);
       this.setState({ movie: movie });
     }
-    else {
-      console.log('No Movie Recieved. Check ID and Network Tab');
+    catch (err) {
+      console.log(err.message);
+    }
+    finally {
+      this.setState({ loading: false });
     }
   }
 
-  handleEdit = async movie => {
-
+  handleUpdate = async movie => {
     const { history } = this.props;
 
     try {
       this.setState({ loading: true });
-      await updateMovie(movie);
-      history.push(`/movies/${movie.id}`);
+      const updatedMovie = await updateMovie(movie);
+      history.push(`/movies/${updatedMovie.id}`);
     }
     catch (err) {
       console.log('ERROR', err.message);
-    }
-    finally {
       this.setState({ loading: false });
     }
   }
@@ -43,8 +42,8 @@ export default class MovieEditPage extends Component {
     if (!movie) return null;
     return (
       <div className="MovieEditPage">
-        <h2>Edit {movie.name}</h2>
-        <MovieForm movie={movie} onSubmit={this.handleEdit} />
+        <h2>Update{movie.name}</h2>
+        <MovieForm movie={movie} onSubmit={this.handleUpdate} />
       </div>
     );
   }

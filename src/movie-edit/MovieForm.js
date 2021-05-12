@@ -127,7 +127,7 @@ l      l</p>
         </p>
 
         <p>
-          <button>{movie ? 'Edit' : 'Add'}Movie</button>
+          <button>{movie ? 'Update' : 'Add'}Movie</button>
         </p>
 
       </form>

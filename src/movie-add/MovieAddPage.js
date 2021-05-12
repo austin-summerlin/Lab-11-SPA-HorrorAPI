@@ -8,19 +8,16 @@ export default class MovieAddPage extends Component {
     loading: false
   }
 
-  handleAdd = async movie => {
+  handleAdd = async movieToAdd => {
     const { history } = this.props;
 
     try {
       this.setState({ loading: true });
-      const id = await addMovie(movie);
-      history.push(`/movies/${id}`);
+      const newMovie = await addMovie(movieToAdd);
+      history.push(`/movies/${newMovie.id}`);
     }
     catch (err) {
       console.log('EROOR', err.message);
-    }
-    finally {
-      this.setState({ loading: false });
     }
   }
 
